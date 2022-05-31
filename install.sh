@@ -297,7 +297,7 @@ download_cloudreve() {
     mkdir "$TMP_DIRECTORY"
     DOWNLOAD_LINK="$(curl -s https://api.github.com/repos/cloudreve/Cloudreve/releases/latest | grep "browser_download_url.*linux_amd64.tar.gz" | cut -d : -f 2,3 | tr -d \")"
     DOWNLOAD_LINK="$(echo $DOWNLOAD_LINK | awk '$1=$1')"
-    DOWNLOAD_LINK="https://www.xvfex.com.cn/api/v3/file/source/2255/cloudreve_3.5.3_linux_amd64.tar.gz?sign=jGbr5jHUaBE5lqxWye9GYkhRw4zjGNZwgbjt0AYvIHE%3D%3A0"
+    # DOWNLOAD_LINK="https://www.xvfex.com.cn/api/v3/file/source/2255/cloudreve_3.5.3_linux_amd64.tar.gz?sign=jGbr5jHUaBE5lqxWye9GYkhRw4zjGNZwgbjt0AYvIHE%3D%3A0"
     echo "Downloading Cloudreve archive: $DOWNLOAD_LINK"
     if ! curl -L -H 'Cache-Control: no-cache' -o "$ZIP_FILE" "$DOWNLOAD_LINK"; then
         echo 'error: Download failed! Please check your network or try again.'
